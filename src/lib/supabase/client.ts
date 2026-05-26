@@ -33,7 +33,9 @@ export function createClient(): SupabaseClient<Database> {
 }
 
 /**
- * Convenience re-export — most components can just do:
- *   import { supabase } from '@/lib/supabase/client'
+ * Convenience re-export — use createClient() instead of this constant
+ * to avoid module-level env var access during build.
  */
-export const supabase: SupabaseClient<Database> = createClient()
+export function getSupabase(): SupabaseClient<Database> {
+  return createClient()
+}

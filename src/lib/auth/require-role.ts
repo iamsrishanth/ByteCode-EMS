@@ -87,7 +87,7 @@ export async function requireRole(
   let department: Department | null = null
   if (appUser.department_id) {
     const { data: dept } = await supabase
-      .from('departments')
+      .from('department')
       .select('*')
       .eq('id', appUser.department_id)
       .maybeSingle<Department>()

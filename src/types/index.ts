@@ -1,123 +1,113 @@
 // ============================================================
-// ByteCode EMS v3 — Type Definitions
+// ByteCode EMS v3 — Type Definitions (matched to actual DB schema)
 // ============================================================
 
 // ---- Enums ----
 
 export type UserRole = 'super_admin' | 'admin' | 'employee'
-
 export type UserStatus = 'active' | 'inactive'
-
 export type TaskPriority = 'low' | 'medium' | 'high' | 'urgent'
-
 export type TaskStatus = 'todo' | 'in_progress' | 'blocked' | 'done'
-
 export type AttendanceStatus = 'present' | 'late' | 'half_day' | 'absent'
-
 export type EODStatus = 'submitted' | 'missed' | 'late'
 
-// ---- Database Row Types ----
+// ---- Database Row Types (matching actual Supabase columns) ----
 
-/** Corresponds to `app_user` table (Supabase Auth + custom profile). */
+export interface Department {
+  id: string
+  name: string
+  head_id: string | null
+  leads_target: number
+  calls_target: number
+  is_active: boolean
+  created_at?: string
+  updated_at?: string
+}
+
 export interface AppUser {
-  id: string // UUID, matches auth.users.id
+  id: string
   email: string
   name: string
   role: UserRole
+  department_id: string | null
+  manager_id: string | null
   status: UserStatus
-  department_id: string | null // FK → departments
-  phone: string | null
-  avatar_url: string | null
-  created_at: string // ISO 8601 timestamp
-  updated_at: string
+  must_change_pw: boolean
+  join_date: string
+  created_at?: string
+  updated_at?: string
 }
 
-/** Corresponds to `departments` table. */
-export interface Department {
-  id: string // UUID
-  name: string
-  description: string | null
-  created_at: string
-}
-
-/** Corresponds to `tasks` table. */
 export interface Task {
-  id: string // UUID
+  id: string
   title: string
   description: string | null
-  assigned_to: string // FK → app_user.id
-  assigned_by: string // FK → app_user.id
+  assigned_to: string
+  assigned_by: string
   priority: TaskPriority
   status: TaskStatus
-  due_date: string | null // ISO 8601 date
+  due_date: string | null
   completed_at: string | null
-  created_at: string
-  updated_at: string
+  created_at?: string
+  updated_at?: string
 }
 
-/** Corresponds to `attendance` table. */
 export interface Attendance {
-  id: string // UUID
-  user_id: string // FK → app_user.id
-  date: string // ISO 8601 date (YYYY-MM-DD)
-  check_in: string | null // ISO 8601 time
-  check_out: string | null // ISO 8601 time
+  id: string
+  user_id: string
+  work_date: string
+  check_in_at: string | null
+  check_out_at: string | null
   status: AttendanceStatus
-  note: string | null
-  created_at: string
-  updated_at: string
+  total_hours: number
+  created_at?: string
+  updated_at?: string
 }
 
-/** Corresponds to `eod_reports` table. */
 export interface EODReport {
-  id: string // UUID
-  user_id: string // FK → app_user.id
-  date: string // ISO 8601 date
+  id: string
+  user_id: string
+  report_date: string
   summary: string
+  tasks_completed: string[] | null
   hours_worked: number
   status: EODStatus
   submitted_at: string
-  created_at: string
+  created_at?: string
 }
 
-/** Corresponds to `weekly_reports` table. */
 export interface WeeklyReport {
-  id: string // UUID
-  user_id: string // FK → app_user.id
-  week_start: string // Monday date ISO
-  week_end: string // Sunday date ISO
-  summary: string
+  id: string
+  user_id: string
+  week_start: string
+  week_end: string
+  leads_total: number
+  calls_total: number
   tasks_completed: number
-  hours_total: number
-  created_at: string
+  eod_submitted: number
+  days_present: number
+  employee_note: string | null
+  generated_at: string
 }
 
-/** Corresponds to `daily_metrics` table. */
 export interface DailyMetrics {
-  id: string // UUID
-  user_id: string // FK → app_user.id
-  date: string // ISO 8601 date
+  id: string
+  user_id: string
+  entry_date: string
   leads: number
   calls: number
-  meetings: number
-  proposals: number
-  closed_deals: number
-  revenue: number
-  created_at: string
-  updated_at: string
+  created_at?: string
+  updated_at?: string
 }
 
-/** Corresponds to `audit_logs` table. */
 export interface AuditLog {
-  id: string // UUID
-  user_id: string // FK → app_user.id
+  id: string
+  actor_id: string
   action: string
-  entity: string
-  entity_id: string | null
-  old_data: Record<string, unknown> | null
-  new_data: Record<string, unknown> | null
-  ip_address: string | null
-  created_at: string
+  target_type: string
+  target_id: string | null
+  details: Record<string, unknown> | null
+  created_at?: string
 }
 
 // ---- Dashboard Aggregates ----
@@ -127,17 +117,14 @@ export interface DashboardStats {
   present_today: number
   tasks_due_today: number
   eod_pending: number
-  leads_today: number
-  calls_today: number
-  revenue_this_month: number
 }
 
 export interface MissedEOD {
   user_id: string
-  user_name: string
-  user_email: string
+  name: string
+  department_id: string | null
   department_name: string | null
-  date: string
+  report_date: string
 }
 
 // ---- Auth / Session Types ----

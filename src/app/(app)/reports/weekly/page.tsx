@@ -163,52 +163,48 @@ export default function WeeklyReportsPage() {
                         </span>
                         <span className="flex items-center gap-1">
                           <ClockIcon className="size-3 text-blue-500" />
-                          {report.hours_total}h total
+                          {report.days_present}d present
                         </span>
                       </div>
                     </div>
 
                     {expandedId === report.id && (
                       <div className="mt-3 space-y-3">
-                        <div className="rounded-md bg-slate-50 p-3">
-                          <h4 className="mb-1 text-xs font-medium text-slate-500 uppercase">
-                            Summary
-                          </h4>
-                          <p className="text-sm text-slate-700 whitespace-pre-wrap">
-                            {report.summary}
-                          </p>
-                        </div>
+                        {report.employee_note && (
+                          <div className="rounded-md bg-slate-50 p-3">
+                            <h4 className="mb-1 text-xs font-medium text-slate-500 uppercase">
+                              Employee Note
+                            </h4>
+                            <p className="text-sm text-slate-700 whitespace-pre-wrap">
+                              {report.employee_note}
+                            </p>
+                          </div>
+                        )}
 
                         <div className="grid grid-cols-3 gap-3">
                           <div className="rounded-md bg-green-50 p-2 text-center">
-                            <p className="text-xs text-green-600">
-                              Tasks Completed
-                            </p>
+                            <p className="text-xs text-green-600">Tasks</p>
                             <p className="text-lg font-bold text-green-700">
                               {report.tasks_completed}
                             </p>
                           </div>
                           <div className="rounded-md bg-blue-50 p-2 text-center">
-                            <p className="text-xs text-blue-600">
-                              Hours Total
-                            </p>
+                            <p className="text-xs text-blue-600">EODs Submitted</p>
                             <p className="text-lg font-bold text-blue-700">
-                              {report.hours_total}
+                              {report.eod_submitted}/6
                             </p>
                           </div>
                           <div className="rounded-md bg-purple-50 p-2 text-center">
-                            <p className="text-xs text-purple-600">
-                              Avg / Day
-                            </p>
+                            <p className="text-xs text-purple-600">Days Present</p>
                             <p className="text-lg font-bold text-purple-700">
-                              {(report.hours_total / 6).toFixed(1)}
+                              {report.days_present}
                             </p>
                           </div>
                         </div>
 
                         <p className="text-xs text-slate-400">
                           Generated on{' '}
-                          {formatDate(report.created_at)}
+                          {formatDate(report.generated_at)}
                         </p>
                       </div>
                     )}

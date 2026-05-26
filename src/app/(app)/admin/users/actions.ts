@@ -372,7 +372,7 @@ export const getDepartmentsForSelect = authenticatedAction({
     const supabase = await createClient()
 
     let query = supabase
-      .from('departments')
+      .from('department')
       .select('id, name')
       .order('name')
 

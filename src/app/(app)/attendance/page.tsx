@@ -268,7 +268,7 @@ export default function AttendancePage() {
     halfDay: history.filter((a) => a.status === 'half_day').length,
     absent: history.filter((a) => a.status === 'absent').length,
     totalHours: history.reduce(
-      (sum, a) => sum + calculateHours(a.check_in, a.check_out),
+      (sum, a) => sum + calculateHours(a.check_in_at, a.check_out_at),
       0
     ),
   }
@@ -364,13 +364,13 @@ export default function AttendancePage() {
                     <Loader2 className="size-4 animate-spin text-slate-400" />
                     <span className="text-sm text-slate-400">Loading...</span>
                   </div>
-                ) : todayRecord?.check_in ? (
+                ) : todayRecord?.check_in_at ? (
                   <div className="space-y-1">
                     <p className="text-lg font-bold text-green-700">
-                      {formatTime(todayRecord.check_in)}
+                      {formatTime(todayRecord.check_in_at)}
                     </p>
                     <p className="text-xs text-slate-400">
-                      Checked in at {formatTime(todayRecord.check_in)}
+                      Checked in at {formatTime(todayRecord.check_in_at)}
                     </p>
                   </div>
                 ) : (
@@ -409,16 +409,16 @@ export default function AttendancePage() {
                     <Loader2 className="size-4 animate-spin text-slate-400" />
                     <span className="text-sm text-slate-400">Loading...</span>
                   </div>
-                ) : todayRecord?.check_out ? (
+                ) : todayRecord?.check_out_at ? (
                   <div className="space-y-1">
                     <p className="text-lg font-bold text-blue-700">
-                      {formatTime(todayRecord.check_out)}
+                      {formatTime(todayRecord.check_out_at)}
                     </p>
                     <p className="text-xs text-slate-400">
-                      Checked out at {formatTime(todayRecord.check_out)}
+                      Checked out at {formatTime(todayRecord.check_out_at)}
                     </p>
                   </div>
-                ) : todayRecord?.check_in ? (
+                ) : todayRecord?.check_in_at ? (
                   <div className="space-y-3">
                     <p className="text-sm text-slate-500">
                       Still working. Ready to leave?
@@ -470,21 +470,16 @@ export default function AttendancePage() {
                     >
                       {statusLabel(todayRecord.status)}
                     </Badge>
-                    {todayRecord.check_in && todayRecord.check_out && (
+                    {todayRecord.check_in_at && todayRecord.check_out_at && (
                       <p className="text-sm text-slate-500">
                         Hours worked:{' '}
                         <span className="font-semibold text-slate-900">
                           {calculateHours(
-                            todayRecord.check_in,
-                            todayRecord.check_out
+                            todayRecord.check_in_at,
+                            todayRecord.check_out_at
                           )}{' '}
                           hrs
                         </span>
-                      </p>
-                    )}
-                    {todayRecord.note && (
-                      <p className="text-xs text-slate-400 italic">
-                        &ldquo;{todayRecord.note}&rdquo;
                       </p>
                     )}
                   </div>
@@ -614,25 +609,25 @@ export default function AttendancePage() {
                         <div className="flex items-center gap-3">
                           <div className="text-sm">
                             <p className="font-medium text-slate-900">
-                              {formatDate(record.date)}
+                              {formatDate(record.work_date)}
                             </p>
                             <p className="text-xs text-slate-500">
-                              {record.check_in
-                                ? formatTime(record.check_in)
+                              {record.check_in_at
+                                ? formatTime(record.check_in_at)
                                 : '--'}
                               {' — '}
-                              {record.check_out
-                                ? formatTime(record.check_out)
+                              {record.check_out_at
+                                ? formatTime(record.check_out_at)
                                 : '--'}
                             </p>
                           </div>
                         </div>
                         <div className="flex items-center gap-3">
-                          {record.check_in && record.check_out && (
+                          {record.check_in_at && record.check_out_at && (
                             <span className="text-xs text-slate-500">
                               {calculateHours(
-                                record.check_in,
-                                record.check_out
+                                record.check_in_at,
+                                record.check_out_at
                               )}{' '}
                               hrs
                             </span>
@@ -716,15 +711,15 @@ export default function AttendancePage() {
                             {member.attendance ? (
                               <>
                                 <span className="text-xs text-slate-500">
-                                  {member.attendance.check_in
+                                  {member.attendance.check_in_at
                                     ? formatTime(
-                                        member.attendance.check_in
+                                        member.attendance.check_in_at
                                       )
                                     : '--'}
                                   {' — '}
-                                  {member.attendance.check_out
+                                  {member.attendance.check_out_at
                                     ? formatTime(
-                                        member.attendance.check_out
+                                        member.attendance.check_out_at
                                       )
                                     : '--'}
                                 </span>

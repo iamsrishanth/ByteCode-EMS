@@ -60,7 +60,7 @@ export async function getTodayAttendance(): Promise<
       .from('attendance')
       .select('*')
       .eq('user_id', user.id)
-      .eq('date', today)
+      .eq('work_date', today)
       .maybeSingle()
 
     if (error) throw error
@@ -84,7 +84,7 @@ export async function checkIn(
       .from('attendance')
       .select('id')
       .eq('user_id', user.id)
-      .eq('date', today)
+      .eq('work_date', today)
       .maybeSingle()
 
     if (existing) {
@@ -132,7 +132,7 @@ export async function checkOut(
       .from('attendance')
       .select('*')
       .eq('user_id', user.id)
-      .eq('date', today)
+      .eq('work_date', today)
       .maybeSingle()
 
     if (fetchError) throw fetchError
@@ -161,9 +161,8 @@ export async function checkOut(
     const { data, error } = await supabase
       .from('attendance')
       .update({
-        check_out: now.toISOString(),
+        check_out_at: now.toISOString(),
         status: finalStatus,
-        note: note ?? record.note,
       })
       .eq('id', record.id)
       .select()
@@ -267,7 +266,7 @@ export async function getTeamAttendance(params?: {
       .from('attendance')
       .select('*')
       .in('user_id', userIds)
-      .eq('date', date)
+      .eq('work_date', date)
 
     if (attError) throw attError
 

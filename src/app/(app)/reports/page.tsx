@@ -229,13 +229,18 @@ export default function ReportsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
-          EOD Reports
-        </h1>
-        <p className="text-sm text-slate-500">
-          End-of-day reports and compliance tracking
-        </p>
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            EOD Reports
+          </h1>
+          <p className="text-sm text-slate-500">
+            End-of-day reports and compliance tracking
+          </p>
+        </div>
+        <a href="/api/export/eod" className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors">
+          Download CSV
+        </a>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>

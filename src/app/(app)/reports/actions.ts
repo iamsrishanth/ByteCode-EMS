@@ -355,7 +355,7 @@ export async function getWeeklyReports(params?: {
     const supabase = await createClient()
 
     let query = supabase
-      .from('weekly_reports')
+      .from('weekly_report')
       .select('*')
       .order('week_start', { ascending: false })
       .limit(params?.limit ?? 12)

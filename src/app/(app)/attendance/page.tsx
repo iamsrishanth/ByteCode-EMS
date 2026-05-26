@@ -301,10 +301,15 @@ export default function AttendancePage() {
               : 'Track your daily attendance'}
           </p>
         </div>
-        <Button variant="outline" size="sm" onClick={handleRefresh}>
-          <RefreshCw className="size-3.5" />
-          Refresh
-        </Button>
+        <div className="flex items-center gap-2">
+          <a href="/api/export/attendance" className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors">
+            Download CSV
+          </a>
+          <Button variant="outline" size="sm" onClick={handleRefresh}>
+            <RefreshCw className="size-3.5" />
+            Refresh
+          </Button>
+        </div>
       </div>
 
       {/* Error banner */}

@@ -22,7 +22,8 @@ import {
 /**
  * Format a date (or date string) for display: "26 May 2026"
  */
-export function formatDate(date: Date | string): string {
+export function formatDate(date: Date | string | null | undefined): string {
+  if (!date) return '—'
   const d = typeof date === 'string' ? new Date(date) : date
   return format(d, 'd MMM yyyy')
 }
@@ -30,7 +31,8 @@ export function formatDate(date: Date | string): string {
 /**
  * Format a time (or date) for display: "2:30 PM"
  */
-export function formatTime(date: Date | string): string {
+export function formatTime(date: Date | string | null | undefined): string {
+  if (!date) return '—'
   const d = typeof date === 'string' ? new Date(date) : date
   return format(d, 'h:mm a')
 }
@@ -38,7 +40,8 @@ export function formatTime(date: Date | string): string {
 /**
  * Format a full date-time: "26 May 2026, 2:30 PM"
  */
-export function formatDateTime(date: Date | string): string {
+export function formatDateTime(date: Date | string | null | undefined): string {
+  if (!date) return '—'
   const d = typeof date === 'string' ? new Date(date) : date
   return format(d, "d MMM yyyy, h:mm a")
 }

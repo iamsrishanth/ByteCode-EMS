@@ -511,7 +511,7 @@ export default function ReportsPage() {
                             <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                               <div className="flex items-center gap-2">
                                 <span className="text-sm font-medium">
-                                  {formatDate(report.date)}
+                                  {formatDate(report.report_date)}
                                 </span>
                                 <span className="text-xs text-slate-500">
                                   {report.user_name}

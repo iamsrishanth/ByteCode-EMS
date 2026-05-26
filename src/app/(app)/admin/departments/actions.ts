@@ -57,7 +57,7 @@ export const getDepartments = authenticatedAction({
 
     // Get departments
     const { data: depts, error: deptError } = await supabase
-      .from('departments')
+      .from('department')
       .select('*')
       .order('name')
 
@@ -133,7 +133,7 @@ export const createDepartment = authenticatedAction({
     const supabase = await createClient()
 
     const { data, error } = await supabase
-      .from('departments')
+      .from('department')
       .insert({
         name: input.name,
         description: input.description ?? null,
@@ -180,7 +180,7 @@ export const updateDepartment = authenticatedAction({
     }
 
     const { error } = await supabase
-      .from('departments')
+      .from('department')
       .update(updates)
       .eq('id', input.id)
 

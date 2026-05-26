@@ -74,16 +74,16 @@ export const submitEOD = authenticatedAction({
 
     // Upsert EOD report (one per user per day)
     const { data: existing, error: fetchError } = await supabase
-      .from('eod_reports')
+      .from('eod_report')
       .select('id')
       .eq('user_id', profile.user.id)
-      .eq('date', today)
+      .eq('report_date', today)
       .maybeSingle<{ id: string }>()
 
     if (existing) {
       // Update
       const { error } = await supabase
-        .from('eod_reports')
+        .from('eod_report')
         .update({
           summary: input.summary,
           hours_worked: input.hours_worked,
@@ -98,7 +98,7 @@ export const submitEOD = authenticatedAction({
       }
     } else {
       // Insert
-      const { error } = await supabase.from('eod_reports').insert({
+      const { error } = await supabase.from('eod_report').insert({
         user_id: profile.user.id,
         date: today,
         summary: input.summary,
@@ -126,7 +126,7 @@ export const submitEOD = authenticatedAction({
         .from('daily_metrics')
         .select('id')
         .eq('user_id', profile.user.id)
-        .eq('date', today)
+        .eq('entry_date', today)
         .maybeSingle<{ id: string }>()
 
       if (existingMetrics) {
@@ -170,10 +170,10 @@ export async function getTodayEOD(): Promise<
     const today = new Date().toISOString().split('T')[0]
 
     const { data, error } = await supabase
-      .from('eod_reports')
+      .from('eod_report')
       .select('*')
       .eq('user_id', currentUser.id)
-      .eq('date', today)
+      .eq('report_date', today)
       .maybeSingle<EODReport>()
 
     if (error) {
@@ -208,7 +208,7 @@ export async function getEODHistory(params: {
     const supabase = await createClient()
 
     let query = supabase
-      .from('eod_reports')
+      .from('eod_report')
       .select(
         '*, user:user_id(name, email, department_id), department:user_id(department_id(name))'
       )
@@ -252,8 +252,9 @@ export async function getEODHistory(params: {
     const reports: EODReportWithUser[] = (data || []).map((row: any) => ({
       id: row.id,
       user_id: row.user_id,
-      date: row.date,
+      report_date: row.report_date,
       summary: row.summary,
+      tasks_completed: row.tasks_completed,
       hours_worked: row.hours_worked,
       status: row.status,
       submitted_at: row.submitted_at,
@@ -303,9 +304,9 @@ export async function getEODCompliance(
     // Get EOD reports for today
     const userIds = (users || []).map((u) => u.id)
     const { data: reports, error: reportError } = await supabase
-      .from('eod_reports')
+      .from('eod_report')
       .select('user_id, status, submitted_at')
-      .eq('date', targetDate)
+      .eq('report_date', targetDate)
       .in('user_id', userIds)
 
     if (reportError) {

@@ -64,7 +64,7 @@ export async function getTasks(
     const supabase = await createClient()
 
     let query = supabase
-      .from('tasks')
+      .from('task')
       .select('*, assignee:assigned_to(name), assigner:assigned_by(name)')
       .order('created_at', { ascending: false })
 
@@ -146,7 +146,7 @@ export const createTask = authenticatedAction({
   handler: async ({ input, profile }) => {
     const supabase = await createClient()
 
-    const { error } = await supabase.from('tasks').insert({
+    const { error } = await supabase.from('task').insert({
       title: input.title,
       description: input.description ?? null,
       assigned_to: input.assigned_to,
@@ -194,7 +194,7 @@ export async function updateTaskStatus(
 
     // Fetch the existing task
     const { data: task, error: fetchError } = await supabase
-      .from('tasks')
+      .from('task')
       .select('*')
       .eq('id', id)
       .maybeSingle<Task>()
@@ -236,7 +236,7 @@ export async function updateTaskStatus(
     }
 
     const { error: updateError } = await supabase
-      .from('tasks')
+      .from('task')
       .update(updates)
       .eq('id', id)
 
@@ -276,7 +276,7 @@ export const updateTask = authenticatedAction({
     if (input.due_date !== undefined) updates.due_date = input.due_date
 
     const { error } = await supabase
-      .from('tasks')
+      .from('task')
       .update(updates)
       .eq('id', (input as any).id)
 
@@ -303,7 +303,7 @@ export const deleteTask = authenticatedAction({
   handler: async ({ input }) => {
     const supabase = await createClient()
 
-    const { error } = await supabase.from('tasks').delete().eq('id', input.id)
+    const { error } = await supabase.from('task').delete().eq('id', input.id)
 
     if (error) {
       console.error('[deleteTask] Supabase error:', error)

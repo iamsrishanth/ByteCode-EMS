@@ -1,8 +1,14 @@
 {
   "framework": "nextjs",
   "crons": [
-    { "path": "/api/cron/eod-cutoff", "schedule": "30 12 * * 1-6" },
-    { "path": "/api/cron/weekly-rollup", "schedule": "30 12 * * 6" }
+    {
+      "path": "/api/cron/eod-cutoff",
+      "schedule": "30 12 * * 1-6"
+    },
+    {
+      "path": "/api/cron/weekly-rollup",
+      "schedule": "30 12 * * 6"
+    }
   ],
   "env": {
     "NEXT_PUBLIC_SUPABASE_URL": "https://noqhimrryqwpxzmqfrhn.supabase.co",

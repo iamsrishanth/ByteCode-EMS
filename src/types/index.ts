@@ -31,6 +31,7 @@ export interface AppUser {
   role: UserRole
   department_id: string | null
   manager_id: string | null
+  job_title: string | null
   status: UserStatus
   must_change_pw: boolean
   join_date: string

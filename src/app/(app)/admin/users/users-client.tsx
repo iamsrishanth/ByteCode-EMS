@@ -416,6 +416,7 @@ export default function UsersClient({
                 <TableHead>Name / Email</TableHead>
                 <TableHead>Role</TableHead>
                 <TableHead>Department</TableHead>
+                <TableHead>Job Title</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Joined</TableHead>
                 <TableHead className="w-[60px]" />
@@ -447,6 +448,11 @@ export default function UsersClient({
                   <TableCell>
                     <span className="text-sm text-slate-600">
                       {user.department_name || '—'}
+                    </span>
+                  </TableCell>
+                  <TableCell>
+                    <span className="text-sm text-slate-600">
+                      {(user as any).job_title || '—'}
                     </span>
                   </TableCell>
                   <TableCell>

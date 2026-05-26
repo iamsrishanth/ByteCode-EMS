@@ -22,13 +22,23 @@ export default async function AppLayout({
   // Fetch user profile from app_user table
   const { data: profile } = await supabase
     .from("app_user")
-    .select("name, role, department")
+    .select("name, role, department_id")
     .eq("id", user.id)
     .maybeSingle();
 
   const userName = profile?.name || user.email?.split("@")[0] || "User";
   const userRole = profile?.role || "employee";
-  const userDepartment = profile?.department || null;
+
+  // Fetch department name if user has a department
+  let userDepartment: string | null = null;
+  if (profile?.department_id) {
+    const { data: dept } = await supabase
+      .from("department")
+      .select("name")
+      .eq("id", profile.department_id)
+      .maybeSingle();
+    userDepartment = dept?.name ?? null;
+  }
 
   return (
     <div className="flex min-h-screen">

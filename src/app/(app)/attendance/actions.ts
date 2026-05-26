@@ -143,12 +143,12 @@ export async function checkOut(
       )
     }
 
-    if (record.check_out) {
+    if (record.check_out_at) {
       throw new Error('You have already checked out today.')
     }
 
     const now = new Date()
-    const checkInTime = new Date(record.check_in!)
+    const checkInTime = new Date(record.check_in_at!)
     const totalHours =
       Math.round(
         ((now.getTime() - checkInTime.getTime()) / (1000 * 60 * 60)) * 100

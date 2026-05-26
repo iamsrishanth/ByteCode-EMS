@@ -112,11 +112,12 @@ export type DailyMetricsInput = z.infer<typeof dailyMetricsSchema>
 export const weeklyReportSchema = z.object({
   week_start: z.string().min(1, 'Week start date is required'),
   week_end: z.string().min(1, 'Week end date is required'),
-  summary: z.string().min(10, 'Summary must be at least 10 characters'),
-  tasks_completed: z
-    .int()
-    .nonnegative('Tasks completed must be zero or greater'),
-  hours_total: z.number().positive('Hours total must be positive'),
+  employee_note: z.string().optional(),
+  leads_total: z.int().nonnegative().optional(),
+  calls_total: z.int().nonnegative().optional(),
+  tasks_completed: z.int().nonnegative().optional(),
+  eod_submitted: z.int().nonnegative().optional(),
+  days_present: z.int().nonnegative().optional(),
 })
 export type WeeklyReportInput = z.infer<typeof weeklyReportSchema>
 

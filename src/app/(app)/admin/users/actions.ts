@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache'
 import { createServiceClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
 import { authenticatedAction } from '@/lib/auth/require-role'
+import { logAuditEvent, AuditActions } from '@/lib/audit'
 import type { AppUser } from '@/types'
 
 // ---------------------------------------------------------------------------
@@ -167,6 +168,16 @@ export const createUser = authenticatedAction({
     }
 
     revalidatePath('/admin/users')
+
+    // Audit log
+    await logAuditEvent({
+      actorId: profile.user.id,
+      action: AuditActions.USER_CREATED,
+      targetType: 'app_user',
+      targetId: authUser.user.id,
+      details: { email: input.email, role: input.role, department_id: input.department_id },
+    })
+
     return { id: authUser.user.id }
   },
 })
@@ -239,6 +250,21 @@ export const updateUser = authenticatedAction({
     if (error) throw new Error(error.message)
 
     revalidatePath('/admin/users')
+
+    // Audit log
+    await logAuditEvent({
+      actorId: profile.user.id,
+      action: input.role && input.role !== targetUser.role
+        ? AuditActions.ROLE_CHANGED
+        : AuditActions.USER_UPDATED,
+      targetType: 'app_user',
+      targetId: input.id,
+      details: {
+        changes: updates,
+        previous: { role: targetUser.role, department_id: targetUser.department_id },
+      },
+    })
+
     return { id: input.id }
   },
 })

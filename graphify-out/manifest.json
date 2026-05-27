@@ -1,0 +1,382 @@
+{
+  "/mnt/data/Projects/bytecode-ems/eslint.config.mjs": {
+    "mtime": 1779781334.037178,
+    "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
+    "semantic_hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "/mnt/data/Projects/bytecode-ems/package.json": {
+    "mtime": 1779781831.0800185,
+    "ast_hash": "c006c60c1bfef5ec96cfbc15addde0ed",
+    "semantic_hash": "c006c60c1bfef5ec96cfbc15addde0ed"
+  },
+  "/mnt/data/Projects/bytecode-ems/components.json": {
+    "mtime": 1779781379.3217738,
+    "ast_hash": "fc5c9e9a7b93eeb2f7b4e1ce0959e4a6",
+    "semantic_hash": "fc5c9e9a7b93eeb2f7b4e1ce0959e4a6"
+  },
+  "/mnt/data/Projects/bytecode-ems/vercel.json": {
+    "mtime": 1779794044.964517,
+    "ast_hash": "0fb6773e142254e0ff5e3a423aefbca9",
+    "semantic_hash": "0fb6773e142254e0ff5e3a423aefbca9"
+  },
+  "/mnt/data/Projects/bytecode-ems/next.config.ts": {
+    "mtime": 1779795964.1894941,
+    "ast_hash": "5d4a0fe2ac7179dd12961018525e026e",
+    "semantic_hash": "5d4a0fe2ac7179dd12961018525e026e"
+  },
+  "/mnt/data/Projects/bytecode-ems/postcss.config.mjs": {
+    "mtime": 1779781334.037178,
+    "ast_hash": "239f3ebf717465dc636818a1a619398d",
+    "semantic_hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "/mnt/data/Projects/bytecode-ems/tsconfig.json": {
+    "mtime": 1779781334.041178,
+    "ast_hash": "ee17fd1c97c735e9f3564e3f5251f125",
+    "semantic_hash": "ee17fd1c97c735e9f3564e3f5251f125"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/middleware.ts": {
+    "mtime": 1779782712.0682693,
+    "ast_hash": "162a7c7821465a06b91d218ab2577178",
+    "semantic_hash": "162a7c7821465a06b91d218ab2577178"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/page.tsx": {
+    "mtime": 1779781638.2933993,
+    "ast_hash": "a104b9646a33610b785eb8a4b3d3c9d7",
+    "semantic_hash": "a104b9646a33610b785eb8a4b3d3c9d7"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/layout.tsx": {
+    "mtime": 1779786273.6478422,
+    "ast_hash": "0b747ed1ca558e1780f58dff9629443d",
+    "semantic_hash": "0b747ed1ca558e1780f58dff9629443d"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/api/cron/eod-cutoff/route.ts": {
+    "mtime": 1779783048.9850082,
+    "ast_hash": "c35892ffa44e187db629dd1bc364340f",
+    "semantic_hash": "c35892ffa44e187db629dd1bc364340f"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/api/cron/weekly-rollup/route.ts": {
+    "mtime": 1779783048.969008,
+    "ast_hash": "31ce6e014aeb1ac701f92e80447091e3",
+    "semantic_hash": "31ce6e014aeb1ac701f92e80447091e3"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/api/export/weekly/route.ts": {
+    "mtime": 1779785621.17088,
+    "ast_hash": "1b695e6ed4aa33945df933b30dc69cd6",
+    "semantic_hash": "1b695e6ed4aa33945df933b30dc69cd6"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/api/export/eod/route.ts": {
+    "mtime": 1779785621.17888,
+    "ast_hash": "20a404499a9f07ce02c13fd55120db3f",
+    "semantic_hash": "20a404499a9f07ce02c13fd55120db3f"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/api/export/attendance/route.ts": {
+    "mtime": 1779785621.1908803,
+    "ast_hash": "a752da6fdc7f5df01b2048f3db0f3ddc",
+    "semantic_hash": "a752da6fdc7f5df01b2048f3db0f3ddc"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/error.tsx": {
+    "mtime": 1779786295.5681324,
+    "ast_hash": "0210fc48eab2a858a1a404401cffbcf5",
+    "semantic_hash": "0210fc48eab2a858a1a404401cffbcf5"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/layout.tsx": {
+    "mtime": 1779785206.5332892,
+    "ast_hash": "b53532ea890efc358c5ddf9da86cc75e",
+    "semantic_hash": "b53532ea890efc358c5ddf9da86cc75e"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/reports/page.tsx": {
+    "mtime": 1779788571.182742,
+    "ast_hash": "cab90569cfa493c4a98e08b5db3c8f06",
+    "semantic_hash": "cab90569cfa493c4a98e08b5db3c8f06"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/reports/actions.ts": {
+    "mtime": 1779788856.8585472,
+    "ast_hash": "2181f32eb1b225268bd8a45a5f943538",
+    "semantic_hash": "2181f32eb1b225268bd8a45a5f943538"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/reports/weekly/page.tsx": {
+    "mtime": 1779788623.3674257,
+    "ast_hash": "1c1e01ab8d627c90816667f6916dc6df",
+    "semantic_hash": "1c1e01ab8d627c90816667f6916dc6df"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/dashboard/loading.tsx": {
+    "mtime": 1779782856.158355,
+    "ast_hash": "2fe7b994cc5979eb886551416fc5676d",
+    "semantic_hash": "2fe7b994cc5979eb886551416fc5676d"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/dashboard/page.tsx": {
+    "mtime": 1779785895.0067916,
+    "ast_hash": "abd55adf6ee50f2237876dea8140becd",
+    "semantic_hash": "abd55adf6ee50f2237876dea8140becd"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/attendance/page.tsx": {
+    "mtime": 1779788478.2295163,
+    "ast_hash": "d3f2ab5eb252a958af35f3a6eaf731ef",
+    "semantic_hash": "d3f2ab5eb252a958af35f3a6eaf731ef"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/attendance/actions.ts": {
+    "mtime": 1779862734.734072,
+    "ast_hash": "ebd10ec972d8ffefbb597248833746d7",
+    "semantic_hash": "ebd10ec972d8ffefbb597248833746d7"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/tasks/page.tsx": {
+    "mtime": 1779862405.4735723,
+    "ast_hash": "6da71009a88e2d8b343366d41c6f48aa",
+    "semantic_hash": "6da71009a88e2d8b343366d41c6f48aa"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/tasks/actions.ts": {
+    "mtime": 1779788241.6063976,
+    "ast_hash": "d562bf0dd59d69043a2c1f255838ffc5",
+    "semantic_hash": "d562bf0dd59d69043a2c1f255838ffc5"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/admin/layout.tsx": {
+    "mtime": 1779782561.3099558,
+    "ast_hash": "c3a43c9dc55c20d72c041d24eb7082b7",
+    "semantic_hash": "c3a43c9dc55c20d72c041d24eb7082b7"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/admin/admin-nav.tsx": {
+    "mtime": 1779782570.8141086,
+    "ast_hash": "1194a0e66051b57c9ead3c78f52be8dd",
+    "semantic_hash": "1194a0e66051b57c9ead3c78f52be8dd"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/admin/users/page.tsx": {
+    "mtime": 1779782642.9152305,
+    "ast_hash": "2856606a22d674231286f015e200e126",
+    "semantic_hash": "2856606a22d674231286f015e200e126"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/admin/users/users-client.tsx": {
+    "mtime": 1779792085.6459627,
+    "ast_hash": "36c12c6ae099fa954a2b6b3fa3d66772",
+    "semantic_hash": "36c12c6ae099fa954a2b6b3fa3d66772"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/admin/users/actions.ts": {
+    "mtime": 1779796732.7638934,
+    "ast_hash": "ddd79bc433c64544893bee55c82c0b13",
+    "semantic_hash": "ddd79bc433c64544893bee55c82c0b13"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/admin/departments/page.tsx": {
+    "mtime": 1779782705.1561646,
+    "ast_hash": "cea353646de61a1c3bc555c8dc0ca192",
+    "semantic_hash": "cea353646de61a1c3bc555c8dc0ca192"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/admin/departments/departments-client.tsx": {
+    "mtime": 1779782900.166975,
+    "ast_hash": "4dea89777f618094e506cf74d819601d",
+    "semantic_hash": "4dea89777f618094e506cf74d819601d"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(app)/admin/departments/actions.ts": {
+    "mtime": 1779788255.5425847,
+    "ast_hash": "6eaac2fd693b3987a729728d03488217",
+    "semantic_hash": "6eaac2fd693b3987a729728d03488217"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(auth)/layout.tsx": {
+    "mtime": 1779781637.689391,
+    "ast_hash": "b644e21c2e65b43eccb4486213a5ee19",
+    "semantic_hash": "b644e21c2e65b43eccb4486213a5ee19"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(auth)/setup/page.tsx": {
+    "mtime": 1779781672.233873,
+    "ast_hash": "11d0204fd737b24beb55e015c5356f89",
+    "semantic_hash": "11d0204fd737b24beb55e015c5356f89"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/app/(auth)/login/page.tsx": {
+    "mtime": 1779781672.229873,
+    "ast_hash": "f76d2c9686e915512b206bc0e53a2240",
+    "semantic_hash": "f76d2c9686e915512b206bc0e53a2240"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/layout/sidebar.tsx": {
+    "mtime": 1779782719.9763925,
+    "ast_hash": "3edd1b418ecc8aee5f1d36665c95a628",
+    "semantic_hash": "3edd1b418ecc8aee5f1d36665c95a628"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/dropdown-menu.tsx": {
+    "mtime": 1779781418.8222897,
+    "ast_hash": "e6107cbb2088437e76a858f75b5a0280",
+    "semantic_hash": "e6107cbb2088437e76a858f75b5a0280"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/badge.tsx": {
+    "mtime": 1779781419.0262923,
+    "ast_hash": "e4ec840217040d5630ee6ed7213a1d72",
+    "semantic_hash": "e4ec840217040d5630ee6ed7213a1d72"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/avatar.tsx": {
+    "mtime": 1779781418.9822917,
+    "ast_hash": "8b41492907a73176027427a3f0fd2302",
+    "semantic_hash": "8b41492907a73176027427a3f0fd2302"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/sonner.tsx": {
+    "mtime": 1779781419.1942945,
+    "ast_hash": "f46214bc2a6a5153a6e04fad523d5587",
+    "semantic_hash": "f46214bc2a6a5153a6e04fad523d5587"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/label.tsx": {
+    "mtime": 1779781418.5582862,
+    "ast_hash": "a70440da86bfc6a07f15197cca48cb08",
+    "semantic_hash": "a70440da86bfc6a07f15197cca48cb08"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/textarea.tsx": {
+    "mtime": 1779781419.1182935,
+    "ast_hash": "d448d2a90e48542e51b93a1189127bf2",
+    "semantic_hash": "d448d2a90e48542e51b93a1189127bf2"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/button.tsx": {
+    "mtime": 1779781388.4578936,
+    "ast_hash": "705bf3552a39e0c722665ccbecb30654",
+    "semantic_hash": "705bf3552a39e0c722665ccbecb30654"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/separator.tsx": {
+    "mtime": 1779781419.078293,
+    "ast_hash": "3de2dca3e47ab29c4b1f632671545628",
+    "semantic_hash": "3de2dca3e47ab29c4b1f632671545628"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/sheet.tsx": {
+    "mtime": 1779781419.382297,
+    "ast_hash": "43ad8bec991f7a28d2aa22d4f374e6b7",
+    "semantic_hash": "43ad8bec991f7a28d2aa22d4f374e6b7"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/card.tsx": {
+    "mtime": 1779781418.4262846,
+    "ast_hash": "77a10bd948ca424972a28e704a3df604",
+    "semantic_hash": "77a10bd948ca424972a28e704a3df604"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/input.tsx": {
+    "mtime": 1779781418.4982855,
+    "ast_hash": "0607b02d99a2e92f9509223f36ccc6ec",
+    "semantic_hash": "0607b02d99a2e92f9509223f36ccc6ec"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/table.tsx": {
+    "mtime": 1779781418.8702903,
+    "ast_hash": "44f87727e60080863edb00fdd2fcd8da",
+    "semantic_hash": "44f87727e60080863edb00fdd2fcd8da"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/tabs.tsx": {
+    "mtime": 1779781418.9382913,
+    "ast_hash": "429035bc858475cd3bcedbb08a5ba8da",
+    "semantic_hash": "429035bc858475cd3bcedbb08a5ba8da"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/select.tsx": {
+    "mtime": 1779781418.7182884,
+    "ast_hash": "ab95f478cb74d1906b07425c15b124cc",
+    "semantic_hash": "ab95f478cb74d1906b07425c15b124cc"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/components/ui/dialog.tsx": {
+    "mtime": 1779781419.3262963,
+    "ast_hash": "d9618a63d34473ec512321cc12d43692",
+    "semantic_hash": "d9618a63d34473ec512321cc12d43692"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/lib/audit.ts": {
+    "mtime": 1779786313.5163689,
+    "ast_hash": "7469f4b596473537f00985174f584c81",
+    "semantic_hash": "7469f4b596473537f00985174f584c81"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/lib/utils.ts": {
+    "mtime": 1779788418.824737,
+    "ast_hash": "868b070d04aac03422d6f25374748231",
+    "semantic_hash": "868b070d04aac03422d6f25374748231"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/lib/validations/index.ts": {
+    "mtime": 1779861356.051362,
+    "ast_hash": "c3a748484f68f1b1ce75bbee359f8d5c",
+    "semantic_hash": "c3a748484f68f1b1ce75bbee359f8d5c"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/lib/supabase/server.ts": {
+    "mtime": 1779781662.581737,
+    "ast_hash": "f6b9e6de7b4da5ea3397472b6a457c59",
+    "semantic_hash": "f6b9e6de7b4da5ea3397472b6a457c59"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/lib/supabase/admin.ts": {
+    "mtime": 1779781673.933897,
+    "ast_hash": "5efa41548f46b9ac4af64b862f8bad76",
+    "semantic_hash": "5efa41548f46b9ac4af64b862f8bad76"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/lib/supabase/client.ts": {
+    "mtime": 1779784226.479751,
+    "ast_hash": "90dea9bf4d54592dc857c64a29a93f97",
+    "semantic_hash": "90dea9bf4d54592dc857c64a29a93f97"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/lib/supabase/middleware.ts": {
+    "mtime": 1779795279.3881454,
+    "ast_hash": "f6426f1878f8c5cd4bee017a47d8fc2d",
+    "semantic_hash": "f6426f1878f8c5cd4bee017a47d8fc2d"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/lib/auth/require-role.ts": {
+    "mtime": 1779788256.8906028,
+    "ast_hash": "936fc5ce63811aba08aa3eb02ed21f46",
+    "semantic_hash": "936fc5ce63811aba08aa3eb02ed21f46"
+  },
+  "/mnt/data/Projects/bytecode-ems/src/types/index.ts": {
+    "mtime": 1779792741.2747433,
+    "ast_hash": "23abebecac4f7e33b15eb5446dfdec9f",
+    "semantic_hash": "23abebecac4f7e33b15eb5446dfdec9f"
+  },
+  "/mnt/data/Projects/bytecode-ems/supabase/migrations/004_cron.sql": {
+    "mtime": 1779781656.7216544,
+    "ast_hash": "b401c1cdc603ea06413dcde8b0e7c473",
+    "semantic_hash": "b401c1cdc603ea06413dcde8b0e7c473"
+  },
+  "/mnt/data/Projects/bytecode-ems/supabase/migrations/001_schema.sql": {
+    "mtime": 1779781656.7376547,
+    "ast_hash": "d6a22549f9e1545b671ee3e4da30c2d6",
+    "semantic_hash": "d6a22549f9e1545b671ee3e4da30c2d6"
+  },
+  "/mnt/data/Projects/bytecode-ems/supabase/migrations/003_seed.sql": {
+    "mtime": 1779781656.7096543,
+    "ast_hash": "791f1a7729b9523a7555785c49678ea5",
+    "semantic_hash": "791f1a7729b9523a7555785c49678ea5"
+  },
+  "/mnt/data/Projects/bytecode-ems/supabase/migrations/002_rls.sql": {
+    "mtime": 1779781656.7016542,
+    "ast_hash": "68b42054f9d2c766a0e14eb0b67fddaa",
+    "semantic_hash": "68b42054f9d2c766a0e14eb0b67fddaa"
+  },
+  "/mnt/data/Projects/bytecode-ems/public/manifest.json": {
+    "mtime": 1779794045.0765188,
+    "ast_hash": "e9faea2d07c3f98e2746ece7fc9afce1",
+    "semantic_hash": "e9faea2d07c3f98e2746ece7fc9afce1"
+  },
+  "/mnt/data/Projects/bytecode-ems/AGENTS.md": {
+    "mtime": 1779781358.4815,
+    "ast_hash": "9e09241799026ac05be315a2f0b50055",
+    "semantic_hash": "9e09241799026ac05be315a2f0b50055"
+  },
+  "/mnt/data/Projects/bytecode-ems/README.md": {
+    "mtime": 1779781334.037178,
+    "ast_hash": "f15aaa42d5d299d091b1171097ea56ad",
+    "semantic_hash": "f15aaa42d5d299d091b1171097ea56ad"
+  },
+  "/mnt/data/Projects/bytecode-ems/CLAUDE.md": {
+    "mtime": 1779781358.4815,
+    "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
+    "semantic_hash": "5c27369b226fcf2be8a6cfe52224e767"
+  },
+  "/mnt/data/Projects/bytecode-ems/public/globe.svg": {
+    "mtime": 1779781334.037178,
+    "ast_hash": "2aaafa6a49b6563925fe440891e32717",
+    "semantic_hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "/mnt/data/Projects/bytecode-ems/public/next.svg": {
+    "mtime": 1779781334.037178,
+    "ast_hash": "8e061864f388b47f33a1c3780831193e",
+    "semantic_hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "/mnt/data/Projects/bytecode-ems/public/icon-192.svg": {
+    "mtime": 1779794045.0125177,
+    "ast_hash": "62a00752663dd6939e96c90fbb208448",
+    "semantic_hash": "62a00752663dd6939e96c90fbb208448"
+  },
+  "/mnt/data/Projects/bytecode-ems/public/file.svg": {
+    "mtime": 1779781334.037178,
+    "ast_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71",
+    "semantic_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "/mnt/data/Projects/bytecode-ems/public/vercel.svg": {
+    "mtime": 1779781334.037178,
+    "ast_hash": "c0af2f507b369b085b35ef4bbe3bcf1e",
+    "semantic_hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "/mnt/data/Projects/bytecode-ems/public/window.svg": {
+    "mtime": 1779781334.041178,
+    "ast_hash": "a2760511c65806022ad20adf74370ff3",
+    "semantic_hash": "a2760511c65806022ad20adf74370ff3"
+  }
+}

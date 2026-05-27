@@ -40,7 +40,7 @@ import {
 
 import { getTasks, createTask, updateTaskStatus, deleteTask, getProfile } from './actions'
 import type { TaskWithAssignee, TaskFilters } from './actions'
-import type { TaskPriority, TaskStatus, ActionResult, AppUser } from '@/types'
+import type { TaskPriority, TaskStatus, ActionResult } from '@/types'
 import { cn, formatDate } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/client'
 
@@ -113,7 +113,7 @@ export default function TasksPage() {
   const [newDueDate, setNewDueDate] = useState('')
   const [newAssignee, setNewAssignee] = useState('')
   const [saving, setSaving] = useState(false)
-  const [users, setUsers] = useState<AppUser[]>([])
+  const [users, setUsers] = useState<{ id: string; name: string; email: string; department_id: string | null }[]>([])
 
   // Detail dialog
   const [selectedTask, setSelectedTask] = useState<TaskWithAssignee | null>(

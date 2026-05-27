@@ -195,7 +195,7 @@ export default function TasksPage() {
       const result = await createTask({
         title: newTitle.trim(),
         description: newDescription.trim() || undefined,
-        assigned_to: newAssignee || '00000000-0000-0000-0000-000000000000', // placeholder
+        assigned_to: newAssignee || undefined,
         priority: newPriority,
         due_date: newDueDate || undefined,
       })

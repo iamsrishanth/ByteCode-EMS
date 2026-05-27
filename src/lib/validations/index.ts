@@ -60,10 +60,10 @@ export const taskStatusSchema = z.enum(['todo', 'in_progress', 'blocked', 'done'
 export const taskSchema = z.object({
   title: z.string().min(1, 'Title is required'),
   description: z.string().optional(),
-  assigned_to: z.string().uuid('Invalid user ID'),
+  assigned_to: z.string().uuid('Invalid user ID').optional(),
   priority: taskPrioritySchema,
-  due_date: z.string().optional(),     // ISO date string
-  status: taskStatusSchema.optional(), // only for updates
+  due_date: z.string().optional(),
+  status: taskStatusSchema.optional(),
 })
 export type TaskInput = z.infer<typeof taskSchema>
 

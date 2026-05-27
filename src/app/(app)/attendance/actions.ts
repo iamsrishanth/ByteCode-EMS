@@ -103,10 +103,9 @@ export async function checkIn(
       .from('attendance')
       .insert({
         user_id: user.id,
-        date: today,
-        check_in: now.toISOString(),
+        work_date: today,
+        check_in_at: now.toISOString(),
         status,
-        note: note ?? null,
       })
       .select()
       .single()

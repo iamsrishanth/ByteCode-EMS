@@ -40,8 +40,9 @@ import {
 
 import { getTasks, createTask, updateTaskStatus, deleteTask, getProfile } from './actions'
 import type { TaskWithAssignee, TaskFilters } from './actions'
-import type { TaskPriority, TaskStatus, ActionResult } from '@/types'
+import type { TaskPriority, TaskStatus, ActionResult, AppUser } from '@/types'
 import { cn, formatDate } from '@/lib/utils'
+import { createClient } from '@/lib/supabase/client'
 
 export const dynamic = 'force-dynamic'
 
@@ -112,6 +113,7 @@ export default function TasksPage() {
   const [newDueDate, setNewDueDate] = useState('')
   const [newAssignee, setNewAssignee] = useState('')
   const [saving, setSaving] = useState(false)
+  const [users, setUsers] = useState<AppUser[]>([])
 
   // Detail dialog
   const [selectedTask, setSelectedTask] = useState<TaskWithAssignee | null>(
@@ -155,15 +157,23 @@ export default function TasksPage() {
     fetchTasks()
   }, [fetchTasks])
 
-  // Also fetch user role from profile
   useEffect(() => {
-    async function checkRole() {
-      const result = await getProfile()
-      if (result.success) {
-        setUserRole(result.data.user.role)
+    async function init() {
+      const roleResult = await getProfile()
+      if (roleResult.success) {
+        setUserRole(roleResult.data.user.role)
       }
+      try {
+        const supabase = createClient()
+        const { data } = await supabase
+          .from('app_user')
+          .select('id, name, email, department_id')
+          .eq('status', 'active')
+          .order('name')
+        setUsers(data || [])
+      } catch { /* ignore */ }
     }
-    checkRole()
+    init()
   }, [])
 
   // ---- Status change handler ----
@@ -318,6 +328,25 @@ export default function TasksPage() {
                       onChange={(e) => setNewDueDate(e.target.value)}
                     />
                   </div>
+                </div>
+                <div className="space-y-2">
+                  <Label>Assign To</Label>
+                  <Select
+                    value={newAssignee || 'none'}
+                    onValueChange={(v) => setNewAssignee(v === 'none' ? '' : v)}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select a person..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">Unassigned</SelectItem>
+                      {users.map((u) => (
+                        <SelectItem key={u.id} value={u.id}>
+                          {u.name} ({u.email})
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
               <DialogFooter showCloseButton>

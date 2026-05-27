@@ -332,7 +332,7 @@ export default function TasksPage() {
                 <div className="space-y-2">
                   <Label>Assign To</Label>
                   <Select
-                    value={newAssignee || 'none'}
+                    value={(newAssignee || 'none') as string}
                     onValueChange={(v) => setNewAssignee(v === 'none' ? '' : v)}
                   >
                     <SelectTrigger className="w-full">

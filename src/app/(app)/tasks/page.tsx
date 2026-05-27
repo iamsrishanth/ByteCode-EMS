@@ -333,7 +333,7 @@ export default function TasksPage() {
                   <Label>Assign To</Label>
                   <Select
                     value={(newAssignee || 'none') as string}
-                    onValueChange={(v) => setNewAssignee(v === 'none' ? '' : v)}
+                    onValueChange={(v) => setNewAssignee((v === 'none' || !v) ? '' : v as string)}
                   >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select a person..." />

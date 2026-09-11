@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ByteCode EMS
+
+Employee Management System for the ByteCode platform: attendance, task management, end-of-day (EOD) and weekly reports, and admin management, built on Next.js, Express, and Supabase. Companion Android app: [`bytecode-ems-mobile`](https://github.com/iamsrishanth/bytecode-ems-mobile).
+
+## Tech Stack
+
+- **Next.js** (App Router, server components/actions) + **React 19** + TypeScript
+- **Supabase** — Postgres, Auth, and Row Level Security (`supabase/migrations/002_rls.sql`)
+- **Express** backend layer per the project description
+- Tailwind CSS v4, shadcn-style UI components, Recharts, Zod validation, date-fns
+- Deployed on **Vercel** (framework pinned in `vercel.json`)
+
+## Modules
+
+- **Auth** — login and first-run setup (`src/app/(auth)`), session handling via `@supabase/ssr` middleware (`src/middleware.ts`) which guards `/dashboard`, `/attendance`, `/tasks`, `/reports`, `/admin`, etc. and redirects unauthenticated users to `/login`
+- **Attendance** — check-in/check-out tracking (`attendance` table, components in `src/components/attendance`)
+- **Tasks** — task assignment and management (`task` table)
+- **Reports** — EOD reports and weekly rollups (`eod_report`, `weekly_report`, `daily_metrics` tables), plus CSV export at `/api/export`
+- **Admin** — user and department management (`app_user`, `department` tables)
+- **Cron jobs** — `/api/cron/eod-cutoff` (12:30 UTC Mon–Sat) and `/api/cron/weekly-rollup` (12:30 UTC Saturdays) scheduled in `vercel.json`, authenticated via a `CRON_SECRET` header check in middleware
+- **Audit log** — action auditing (`audit_log` table, `src/lib/audit.ts`)
+
+## Database (Supabase)
+
+Migrations in `supabase/migrations/`:
+- `001_schema.sql` — `department`, `app_user`, `task`, `attendance`, `eod_report`, `weekly_report`, `daily_metrics`, `audit_log`
+- `002_rls.sql` — row level security policies
+- `003_seed.sql` — seed data
+- `004_cron.sql` — scheduled jobs
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # configure Supabase URL and keys
+npm run dev                  # http://localhost:3000
+npm run build                # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/
+│   ├── (auth)/        # login, setup
+│   ├── (app)/         # dashboard, attendance, tasks, reports, admin
+│   └── api/           # cron endpoints, export
+├── components/        # attendance/, dashboard/, reports/, tasks/, layout/, ui/
+├── lib/               # auth, db, supabase clients, validations, audit
+└── middleware.ts      # session + route guarding + cron auth
+supabase/migrations/   # schema, RLS, seed, cron
+```
